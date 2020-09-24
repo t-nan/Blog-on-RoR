@@ -3,6 +3,10 @@ class ArticlesController < ApplicationController
   def welcome
   end
 
+  def index
+    @articles=Article.all
+  end
+
   def new
   end
 
