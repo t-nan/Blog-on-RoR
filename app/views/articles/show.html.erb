@@ -7,3 +7,46 @@
 <%= @article.text %> </br>
 
 </div>
+
+<div class="container">
+
+<h4> Comments to article: </h4>
+
+
+<% @article.comments.each do |comment| %> </br>
+
+<%= comment.author %> </br>
+
+<%= comment.body %> </br>
+
+<% end %>
+
+</div>
+
+
+<div class="container">
+
+<h4>Add comment</h4>
+
+<%= @error %></br>
+
+<%= form_for ([@article,@article.comments.build]) do |f| %>
+
+<p>
+	<%= f.label :author %>
+	<%= f.text_field :author %>
+</p>
+
+<p>
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+</p>
+
+<p>
+	<%= f.submit 'Save comment' %></br>
+	
+</p>
+
+<% end %>
+
+</div>
