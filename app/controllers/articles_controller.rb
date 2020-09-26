@@ -7,12 +7,12 @@ class ArticlesController < ApplicationController
     @articles=Article.all
   end
 
-  def new
-  end
-
   def show
     @article=Article.find(params[:id])
   end
+
+  def new
+  end  
 
   def create
   @article=Article.new (article_params)
@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
     if @article.save
        redirect_to @article
     else
+      @error=@article.errors.full_messages
       render action: 'new'
     end
   end
