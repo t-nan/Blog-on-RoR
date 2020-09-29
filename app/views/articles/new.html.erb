@@ -2,26 +2,31 @@
 
 <div class="container">
 
-<h2>Add new article</h2>
+<h4>Add new article</h4>
 
-<%= @error %></br>
+
+<%if @error %>
+	<div class="alert alert-danger"><%=@error.join(",")%></div>
+<% end %>
+
 
 <%= form_for :article,url: articles_path do |f| %>
 
-<p>
+<div class="form-group">
 	<%= f.label :title %>
-	<%= f.text_field :title %>
-</p>
+	<%= f.text_field :title, class: "form-control" %>
+</div>
 
-<p>
+<div class="form-group">
 	<%= f.label :text %>
-	<%= f.text_area :text %>
-</p>
+	<%= f.text_area :text, class: "form-control" %>
+</div>
 
-<p>
-	<%= f.submit 'Save article' %></br>
+<div class="form-group">
+	<%= f.submit 'Save article' ,class: "btn btn-outline-success" %>   
+	<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>
 	
-</p>
+</div>
 
 <% end %>
 
