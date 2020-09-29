@@ -1,25 +1,30 @@
 <div class="container">
 
-<h2>Edit article</h2>
+<h4>Edit article</h4>
 
 <%= @error %></br>
 
 <%= form_for :article,url: article_path(@article),method: :put do |f| %>
 
-<p>
+<div class="form-row">
+<div class="form-group col-md-6">
 	<%= f.label :title %>
-	<%= f.text_field :title %>
-</p>
+	<%= f.text_field :title, class: "form-control" %>
+</div>
+</div>
 
-<p>
+
+<div class="form-row">
+<div class="form-group col-md-8">
 	<%= f.label :text %>
-	<%= f.text_area :text %>
-</p>
+	<%= f.text_area :text, class: "form-control" %>
+</div>
+</div>
 
-<p>
-	<%= f.submit 'Update article' %></br>
-	
-</p>
+<div class="form-group">
+	<%= f.submit 'Update article',class: "btn btn-outline-success" %>
+	<%= link_to "Back", :back, class: "btn btn-outline-secondary" %>	
+</div>
 
 <% end %>
 
