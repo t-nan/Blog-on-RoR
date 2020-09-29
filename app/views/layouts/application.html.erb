@@ -36,9 +36,15 @@
 
 <div class="container">
     <% if user_signed_in? %>
-    Hello, <%= current_user.username %> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    Hello, <%= current_user.username %>  
+
+    <br>
+    <br>
+
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-info btn-sm " %>
+
     <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
+    <%= link_to "Log In", new_user_session_path %>
     <% end %>
 
     <p class="notice"><%= notice %></p>
