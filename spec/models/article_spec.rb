@@ -12,7 +12,7 @@ describe Article do
   end
 
   describe "#subject" do
-    
+
     it "returns the article title" do
 
     # создаем объект хитрым способом
@@ -26,5 +26,16 @@ describe Article do
    end
 
   end
-  
+
+
+  describe "#last_comment" do
+    it "returns the last comment" do
+      #создаем статью,но в этот раз с комментариями
+      article=create(:article_with_comments)
+
+      # проверка
+      expect(article.last_comment.body).to eq "Comment body 3"
+    end
+  end
+
 end
